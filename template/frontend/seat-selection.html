@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats - Airline Reservation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .seat-map {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .seat {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .seat.available {
+            background-color: #28a745;
+            color: white;
+        }
+        .seat.selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .seat.occupied {
+            background-color: #dc3545;
+            color: white;
+            cursor: not-allowed;
+        }
+        .seat.premium {
+            background-color: #ffc107;
+            color: black;
+        }
+        .aisle {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            display: inline-flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Airline Reservation</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">Search Flights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my-bookings.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seat Selection Section -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Select Your Seats</h2>
+                        <p class="text-muted">Flight: New York (JFK) to London (LHR)</p>
+                        <p class="text-muted">Date: June 15, 2023 | Time: 10:00 AM</p>
+                        
+                        <!-- Seat Map -->
+                        <div class="seat-map mt-4">
+                            <div class="text-center mb-4">
+                                <h4>First Class</h4>
+                            </div>
+                            <div class="text-center mb-4">
+                                <!-- First Class Seats -->
+                                <div class="d-flex justify-content-center">
+                                    <div class="seat premium" data-seat="1A">1A</div>
+                                    <div class="seat premium" data-seat="1B">1B</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat premium" data-seat="1C">1C</div>
+                                    <div class="seat premium" data-seat="1D">1D</div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="seat premium" data-seat="2A">2A</div>
+                                    <div class="seat premium" data-seat="2B">2B</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat premium" data-seat="2C">2C</div>
+                                    <div class="seat premium" data-seat="2D">2D</div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-4">
+                                <h4>Business Class</h4>
+                            </div>
+                            <div class="text-center mb-4">
+                                <!-- Business Class Seats -->
+                                <div class="d-flex justify-content-center">
+                                    <div class="seat available" data-seat="3A">3A</div>
+                                    <div class="seat available" data-seat="3B">3B</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="3C">3C</div>
+                                    <div class="seat available" data-seat="3D">3D</div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="seat available" data-seat="4A">4A</div>
+                                    <div class="seat available" data-seat="4B">4B</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="4C">4C</div>
+                                    <div class="seat available" data-seat="4D">4D</div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-4">
+                                <h4>Economy Class</h4>
+                            </div>
+                            <div class="text-center">
+                                <!-- Economy Class Seats -->
+                                <div class="d-flex justify-content-center">
+                                    <div class="seat available" data-seat="5A">5A</div>
+                                    <div class="seat available" data-seat="5B">5B</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="5C">5C</div>
+                                    <div class="seat available" data-seat="5D">5D</div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="seat available" data-seat="6A">6A</div>
+                                    <div class="seat available" data-seat="6B">6B</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="6C">6C</div>
+                                    <div class="seat available" data-seat="6D">6D</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seat Legend -->
+                        <div class="mt-4">
+                            <h5>Seat Legend:</h5>
+                            <div class="d-flex gap-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="seat available me-2"></div>
+                                    <span>Available</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="seat selected me-2"></div>
+                                    <span>Selected</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="seat occupied me-2"></div>
+                                    <span>Occupied</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="seat premium me-2"></div>
+                                    <span>Premium</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Booking Summary</h4>
+                        <div class="mb-3">
+                            <h6>Selected Seats:</h6>
+                            <div id="selectedSeats" class="text-muted">No seats selected</div>
+                        </div>
+                        <div class="mb-3">
+                            <h6>Total Price:</h6>
+                            <div id="totalPrice" class="h4">$0.00</div>
+                        </div>
+                        <button class="btn btn-primary w-100" id="proceedToPayment">Proceed to Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Your trusted partner in air travel</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="search.html" class="text-white">Search Flights</a></li>
+                        <li><a href="my-bookings.html" class="text-white">My Bookings</a></li>
+                        <li><a href="contact.html" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: info@airlinereservation.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/seat-selection.js"></script>
+</body>
+</html> 
